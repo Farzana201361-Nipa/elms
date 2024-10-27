@@ -1,9 +1,16 @@
 from django.urls import path 
 from . import views
+from .views import create_course, request_enrollment, course_list,approve_enrollment
 
 app_name = "users"
 
 urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
+    path('courses/', course_list, name='course_list'),
+    path('courses/create/', create_course, name='create_course'),
+    path('courses/request/', request_enrollment, name='request_enrollment'),
+    
+    path('request-enrollment/<int:course_id>/', request_enrollment, name='request_enrollment'),
+    path('approve-enrollment/<int:enrollment_id>/', approve_enrollment, name='approve_enrollment'),
 ]

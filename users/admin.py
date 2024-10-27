@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from .models import CustomUser, Course, CourseMaterial, EnrollmentRequest
+
 # Register your models here.
 
 
@@ -24,3 +25,21 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('email', 'username', 'password1', 'password2', 'user_type', 'is_staff', 'is_active')}
         ),
     )
+
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ['title', 'faculty']
+    search_fields = ['title', 'faculty__username']
+    
+    
+@admin.register(CourseMaterial)    
+class CourseMaterialAdmin(admin.ModelAdmin):
+    list_display = ['course', 'file', 'upload_date']
+    search_fields = ['course__title']
+    
+    
+@admin.register(EnrollmentRequest)
+class EnrollmentRequestAdmin(admin.ModelAdmin):
+    list_display = ['student', 'course', 'status', 'requested_at']
+    list_filter = ['status']
+    search_fields = ['student__username', 'course__title']

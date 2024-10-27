@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Enrollment Request</title>
+    <link rel="stylesheet" href="{% static 'users/styles.css' %}">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Enrollment Request for {{ enrollment_request.course.title }}</h2>
+        <p><strong>Student:</strong> {{ enrollment_request.student.username }}</p>
+        <p><strong>Status:</strong> {{ enrollment_request.status }}</p>
+        <p><strong>Requested At:</strong> {{ enrollment_request.requested_at }}</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="button-group">
+                <button type="submit" name="action" value="approve">Approve</button>
+                <button type="submit" name="action" value="decline">Decline</button>
+            </div>
+        </form>
+        
+        <div class="back-link">
+            <a href="{% url 'users:course_list' %}">Back to Course List</a>
+        </div>
+    </div>
+</body>
+</html>
