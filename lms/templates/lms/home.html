@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endblock css %} 
+
+{%block js%}{%endblock js%}
+
+
+{% block pagetitle %}
+{% endblock pagetitle %}
+
+{% block body %}
+   
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h2>Home</h2>
+                <p>Your personal dashboard for accessing courses, assignments, and resources.</p>
+            </div>
+            <div class="feature">
+                <h2>Content</h2>
+                <p>Find course materials, documents, and lecture notes all in one place.</p>
+            </div>
+            <div class="feature">
+                <h2>Announcements</h2>
+                <p>Stay informed with the latest updates from instructors and admin.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+        <!-- Course Highlights Section -->
+        <section class="highlights">
+            <h2>Our Features</h2>
+            <div class="highlight-container">
+                <div class="highlight-box">
+                    
+                    <h3>Unlimited Course Access</h3>
+                    <p>Access a wide range of courses and learning materials anytime, anywhere.</p>
+                </div>
+                <div class="highlight-box">
+                    
+                    <h3>Interactive Learning</h3>
+                    <p>Engage with quizzes, interactive sessions, and forums to enhance your skills.</p>
+                </div>
+                <div class="highlight-box">
+                    
+                    <h3>Track Your Progress</h3>
+                    <p>Keep track of your completed courses, assignments, and performance.</p>
+                </div>
+            </div>
+        </section>
+{% endblock body %}
+

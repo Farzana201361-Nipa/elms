@@ -1,7 +1,26 @@
 
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'users/css/login.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'users/login.css'%}">
+</head>
+<bod class="login" >
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+            <p class="register-link">Aren't you registered? <a href="{% url 'users:register' %}">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
