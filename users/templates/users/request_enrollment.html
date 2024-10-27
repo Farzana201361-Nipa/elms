@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Enrollment</title>
-    <link rel="stylesheet" href="{% static 'users/course.css' %}">  <!-- Link to CSS if any -->
+    <link rel="stylesheet" href="{% static 'users/course.css' %}">  
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,7 @@
             {{ form.as_p }}
             <button type="submit">Request Enrollment</button>
         </form>
-        <a href="{% url 'course_list' %}">Back to Course List</a>
+        <a href="{% url 'users:course_list' %}">Back to Course List</a>
     </div>
 </body>
 </html>

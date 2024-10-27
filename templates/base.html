@@ -22,8 +22,14 @@
                 <ul>
                     <li><a href="lms:home">Home</a></li>
                     <li><a href="lms:content">Content</a></li>
+
+                    <li><a href="{% url 'users:course_list' %}">View Courses</a></li>
+
+                    
                     <li><a href="lms:announcements">Announcements</a></li>
                     <li><a href="{% url 'users:login' %}">Login</a></li>
+                    
+
                     
 
                     <li class="logout"><a href="lms:logout" >Logout</a></li>
@@ -39,7 +45,7 @@
                 <h1>Welcome to <span>MyLMS</span></h1>
                 <p>Discover courses, manage your progress, and stay updated with announcements.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Browse Courses</a>
+                    <a href="{% url 'users:course_list' %}" class="btn-primary">Browse Courses</a>
                     <a href="#" class="btn-secondary">Learn More</a>
                 </div>
             </div>

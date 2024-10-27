@@ -99,7 +99,7 @@ def approve_enrollment(request, enrollment_id):
         elif action == 'decline':
             enrollment_request.status = 'declined'
         enrollment_request.save()
-        return redirect('users:course_list')  # Redirect to course list or a specific page
+        return redirect('users:course_list') 
     
     return render(request, 'users/approve_enrollment.html', {'enrollment_request': enrollment_request})
 
