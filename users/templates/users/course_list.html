@@ -21,7 +21,9 @@
             {% for course in courses %}
                 <li>
                     <strong>{{ course.title }}</strong>: {{ course.description }}
-                    <a href="{% url 'users:request_enrollment' course.id %}">Request Enrollment</a>
+                    {%if request.user.user_type == 'student'%}
+                    <a href="{% url 'users:request_enrollment' course.id %}" class="enroll-button">Request Enrollment</a>
+                    {% endif %}
                 </li>
             {% empty %}
                 <li>No courses available.</li>
