@@ -15,4 +15,6 @@ urlpatterns = [
     
     path('request-enrollment/<int:course_id>/', views.request_enrollment, name='request_enrollment'),
     path('approve-enrollment/<int:enrollment_id>/', views.approve_enrollment, name='approve_enrollment'),
+    
+    path('content/', views.student_content_view, name='content'),
 ]

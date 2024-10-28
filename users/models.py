@@ -37,12 +37,19 @@ class CourseMaterial(models.Model):
         return f"{self.course.title} - {self.file.name}"
    
    
-   
 class EnrollmentRequest(models.Model):
     student = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'user_type': 'student'})
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('approved', 'Approved'), ('declined', 'Declined')], default='pending')
     requested_at = models.DateTimeField(auto_now_add=True)
-
+     
     def __str__(self):
         return f"{self.student.username} - {self.course.title} - {self.status}"
+   
+   
+   
+        
+    
+    
+    
+

@@ -106,13 +106,25 @@ def approve_enrollment(request, enrollment_id):
     
     return render(request, 'users/approve_enrollment.html', {'enrollment_request': enrollment_request})
 
-
-
-
-
 def user_logout(request):
     if request.method == "POST":
         logout(request)
         return redirect("lms:home")
+
+
+
+def student_content_view(request):
+    if request.user.is_authenticated and request.user.user_type == 'student':
+        approved_courses = Course.objects.filter(
+            enrollmentrequest__student=request.user,
+            enrollmentrequest__status='approved'
+        )
+        return render(request, 'users/student_content.html', {'approved_courses': approved_courses})
+    else:
+        return redirect('users:login')
+
+
+
+
 
 

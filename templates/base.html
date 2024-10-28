@@ -21,7 +21,11 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="{% url 'lms:home' %}">Home</a></li>
-                    <li><a href="users:course_list">Content</a></li>
+
+                {% if user.is_authenticated and user.user_type == 'student' %}
+                    <li><a href="{% url 'users:content' %}">Content</a></li>
+                {% endif %}
+                 
 
                     <li><a href="{% url 'users:course_list' %}">View Courses</a></li>
                     

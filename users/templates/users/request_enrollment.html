@@ -13,10 +13,12 @@
 
 {% block body %}
 
+<div class="container">
+
     <h1>Request Enrollment</h1>
      
-    <div class="container">
-        <h2>Request Enrollment</h2>
+
+        <h2>Are you sure you want access the course?</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
