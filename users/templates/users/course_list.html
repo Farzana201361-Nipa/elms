@@ -29,7 +29,9 @@
                 <li>No courses available.</li>
             {% endfor %}
         </ul>
-        <a href="{% url 'users:create_course' %}">Create New Course</a>
+        {%if request.user.user_type == 'faculty'%}
+        <a href="{% url 'users:create_course' %}" class="create-course-button">Create New Course</a>
+        {% endif %}
     </div>
 
     {%endblock body%}
