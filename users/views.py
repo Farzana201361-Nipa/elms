@@ -45,7 +45,8 @@ def is_faculty(user):
 def is_admin(user):
     return user.is_staff
 
-   
+
+@login_required  
 def create_course(request):
     if request.method == "POST":
         form = CourseForm(request.POST, request.FILES)
@@ -81,6 +82,8 @@ def approve_enrollment(request, enrollment_id):
     # Logic to approve enrollment
     pass
 
+
+@login_required
 def course_list(request):
     #fetching courses
     courses = Course.objects.all()  
