@@ -40,12 +40,12 @@ def login_view(request):
 
 
 def is_faculty(user):
-    return user.user_type == 'faculty'
+    return  user.is_authenticated and user.user_type == 'faculty'
 
 def is_admin(user):
     return user.is_staff
 
-
+@user_passes_test(is_faculty)
 @login_required  
 def create_course(request):
     if request.method == "POST":

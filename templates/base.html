@@ -24,6 +24,11 @@
                     <li><a href="users:course_list">Content</a></li>
 
                     <li><a href="{% url 'users:course_list' %}">View Courses</a></li>
+                    
+
+                {% if user.is_authenticated and user.user_type == 'faculty' %}
+                    <li><a href="{% url 'users:create_course' %}">Create New Course</a></li>
+                {% endif %}
 
                     
                     <li><a href="lms:announcements">Announcements</a></li>
