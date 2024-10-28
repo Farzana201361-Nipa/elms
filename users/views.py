@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login,logout, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Course, CourseMaterial, EnrollmentRequest
@@ -103,5 +103,13 @@ def approve_enrollment(request, enrollment_id):
     
     return render(request, 'users/approve_enrollment.html', {'enrollment_request': enrollment_request})
 
+
+
+
+
+def user_logout(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("lms:home")
 
 

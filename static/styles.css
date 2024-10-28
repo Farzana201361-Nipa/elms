@@ -31,13 +31,15 @@ a {
     list-style-type: none;
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
-.navbar ul li a {
+.navbar ul li a, .logout-button {
     color: white;
     font-size: 16px;
     padding: 8px 16px;
     transition: background 0.3s ease;
+    align-items: center;
 }
 
 .navbar ul li a:hover {
@@ -46,13 +48,22 @@ a {
     border-radius: 5px;
 }
 
+.logout-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-/* Apply red color on hover only for the logout link */
-.navbar ul li.logout a:hover {
+.logout-button:hover {
     background-color: #FF4444; /* Red color */
     color: white;
     border-radius: 5px;
 }
+
 
 /* Hero Section Styling */
 .hero {

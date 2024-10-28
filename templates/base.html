@@ -20,8 +20,8 @@
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="lms:home">Home</a></li>
-                    <li><a href="lms:content">Content</a></li>
+                    <li><a href="{% url 'lms:home' %}">Home</a></li>
+                    <li><a href="users:course_list">Content</a></li>
 
                     <li><a href="{% url 'users:course_list' %}">View Courses</a></li>
 
@@ -29,28 +29,19 @@
                     <li><a href="lms:announcements">Announcements</a></li>
                     <li><a href="{% url 'users:login' %}">Login</a></li>
                     
+                    <li class="logout"> 
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="logout-button">Logout</button>
+                        </form>
+                    </li>
 
                     
-
-                    <li class="logout"><a href="lms:logout" >Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-text">
-                <h1>Welcome to <span>MyLMS</span></h1>
-                <p>Discover courses, manage your progress, and stay updated with announcements.</p>
-                <div class="hero-buttons">
-                    <a href="{% url 'users:course_list' %}" class="btn-primary">Browse Courses</a>
-                    <a href="#" class="btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     {% block body %}
     {%endblock body%}
@@ -65,10 +56,10 @@
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{% url 'lms:home' %}">Home</a></li>
+                    <li><a href="users:course_list">Courses</a></li>
+                    <li><a href="{% url 'users:login' %}">Login</a></li>
+                    <li><a href="{% url 'lms:home' %}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">

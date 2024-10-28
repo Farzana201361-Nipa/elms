@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-{%load static%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course List</title>
-    <link rel="stylesheet" href="{% static 'users/course.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'users/course.css' %}">
+{% endblock css %} 
+
+{%block js%}{%endblock js%}
+
+
+{% block pagetitle %}
+{% endblock pagetitle %}
+
+
+{% block body %}
+
+
+
     <div class="container">
         <h2>Available Courses</h2>
         <ul>
@@ -22,5 +29,6 @@
         </ul>
         <a href="{% url 'users:create_course' %}">Create New Course</a>
     </div>
-</body>
-</html>
+
+    {%endblock body%}
+

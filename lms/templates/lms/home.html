@@ -11,6 +11,19 @@
 {% endblock pagetitle %}
 
 {% block body %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Welcome to <span>MyLMS</span></h1>
+                <p>Discover courses, manage your progress, and stay updated with announcements.</p>
+                <div class="hero-buttons">
+                    <a href="{% url 'users:course_list' %}" class="btn-primary">Browse Courses</a>
+                    <a href="{% url 'lms:home' %}" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
    
     <!-- Features Section -->
     <section class="features">
