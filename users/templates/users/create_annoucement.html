@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'users/course.css' %}">
+{% endblock css %} 
+
+{%block js%}{%endblock js%}
+
+
+{% block pagetitle %}
+{% endblock pagetitle %}
+
+{% block body %}
+    <div class="container">
+        <h2>Create Announcement</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Announcement</button>
+        </form>
+        <a href="{% url 'users:course_list' %}">Back to Course List</a>
+    </div>
+{% endblock %}

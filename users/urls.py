@@ -17,4 +17,8 @@ urlpatterns = [
     path('approve-enrollment/<int:enrollment_id>/', views.approve_enrollment, name='approve_enrollment'),
     
     path('content/', views.student_content_view, name='content'),
+    
+    path('announcements/create/', views.create_announcement, name='create_announcement'),
+    path('courses/<int:course_id>/announcements/', views.view_announcements, name='view_announcements'),
+
 ]

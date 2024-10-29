@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'users/course.css' %}">
+{% endblock css %} 
+
+{%block js%}{%endblock js%}
+
+
+{% block pagetitle %}
+{% endblock pagetitle %}
+
+
+
+{% block body %}
+    <div class="container">
+        <h2>Announcements for {{ course.title }}</h2>
+        <ul>
+            {% for announcement in announcements %}
+                <li>
+                    <strong>{{ announcement.faculty.username }}:</strong> {{ announcement.content }} <br>
+                    <small>Created at: {{ announcement.created_at }}</small>
+                </li>
+            {% empty %}
+                <li>No announcements available for this course.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'users:course_list' %}">Back to Course List</a>
+    </div>
+{% endblock %}

@@ -36,6 +36,12 @@
 
                     
                     <li><a href="lms:announcements">Announcements</a></li>
+                {% if user.is_authenticated and user.user_type == 'faculty' %}
+                    <li><a href="{% url 'users:create_announcement' %}">Create Announcement</a></li>
+                {% endif %}
+
+
+
                     <li><a href="{% url 'users:login' %}">Login</a></li>
                     
                     <li class="logout"> 

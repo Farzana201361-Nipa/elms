@@ -3,7 +3,7 @@ from django.contrib.auth import login,logout, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Course, CourseMaterial, EnrollmentRequest
-from .forms import CustomUserCreationForm, CourseForm, EnrollmentRequestForm
+from .forms import CustomUserCreationForm, CourseForm, EnrollmentRequestForm, AnnouncementForm
 from django.shortcuts import get_object_or_404
 
 
@@ -122,6 +122,31 @@ def student_content_view(request):
         return render(request, 'users/student_content.html', {'approved_courses': approved_courses})
     else:
         return redirect('users:login')
+    
+    
+    
+@login_required
+def create_announcement(request):
+    if request.method == 'POST':
+        form = AnnouncementForm(request.POST)
+        if form.is_valid():
+            announcement = form.save(commit=False)
+            announcement.faculty = request.user  
+            announcement.save()
+            return redirect('users:course_list')  
+    else:
+        form = AnnouncementForm()
+    
+    return render(request, 'users/create_announcement.html', {'form': form})
+
+
+
+@login_required
+def view_announcements(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    announcements = course.announcements.all()
+    return render(request, 'users/view_announcements.html', {'course': course, 'announcements': announcements})
+
 
 
 
