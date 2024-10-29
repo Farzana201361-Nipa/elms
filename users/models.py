@@ -47,7 +47,15 @@ class EnrollmentRequest(models.Model):
         return f"{self.student.username} - {self.course.title} - {self.status}"
    
    
-   
+class Announcement(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="announcements")
+    faculty = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'user_type': 'faculty'})
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Announcement for {self.course.title} by {self.faculty.username}"
+
         
     
     
