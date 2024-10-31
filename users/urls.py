@@ -20,5 +20,5 @@ urlpatterns = [
     
     path('announcements/create/', views.create_announcement, name='create_announcement'),
     path('courses/<int:course_id>/announcements/', views.view_announcements, name='view_announcements'),
-
+    path('view_announcements/', views.view_announcements, name='view_announcements'),
 ]

@@ -18,7 +18,7 @@ def register(request):
             user = form.save(commit=False)
             user.save()
             login(request, user)
-            return redirect('lms:home')  # Redirect to home page after successful registration
+            return redirect('lms:home')  
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
@@ -79,7 +79,7 @@ def request_enrollment(request, course_id):
 @login_required
 @user_passes_test(is_admin)
 def approve_enrollment(request, enrollment_id):
-    # Logic to approve enrollment
+    
     pass
 
 
@@ -133,11 +133,13 @@ def create_announcement(request):
             announcement = form.save(commit=False)
             announcement.faculty = request.user  
             announcement.save()
-            return redirect('users:course_list')  
+            return redirect('users:view_announcements')  
     else:
         form = AnnouncementForm()
     
     return render(request, 'users/create_announcement.html', {'form': form})
+
+
 
 
 
